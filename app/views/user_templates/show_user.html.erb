@@ -1,0 +1,52 @@
+<h1><%=@user_name%></h1>
+
+<dl>
+  <dt>ID</dt>
+    <dd><%=@user_id%></dd>
+  <dt>Edit user</dt>
+    <dd>Username</dd>
+</dl>
+
+<h1>Own Photos (<%=@posted_photos.count%>)</h1>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+    
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Caption
+    </th>
+    
+    <th>
+      Posted
+    </th>
+  </tr>
+
+   <%@posted_photos.each do |a_foto|%>
+    <tr>
+      <td>
+        <%=a_foto.image%>%
+      </td>
+
+       <td>
+        <%=@user_name%>
+      </td>
+        
+       <td>
+        <%=a_foto.caption%>
+      </td>
+
+       <td>
+        <%=a_foto.created_at%>
+      </td>
+    </tr>
+  <%end%>
+
+
+</table>
