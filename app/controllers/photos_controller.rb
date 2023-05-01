@@ -33,8 +33,35 @@ class PhotosController < ActionController::Base
 
     redirect_to("/photos")
     
-    # render({:template => "/photo_templates/delete_photo.html.erb"})
 
   end
   
+
+  def create_photo
+
+    @image = params.fetch("input_image")
+    @caption = params.fetch("input_caption")
+    @owner_id = params.fetch("input_owner_id")
+
+   new_photo = Photo.new
+
+   new_photo.image = @image
+   new_photo.caption = @caption
+   new_photo.owner_id = @owner_id
+   new_photo.id = Photo.all.order({ :id => :desc}).at(0).id + 1
+   new_photo.likes_count = 0
+   new_photo.comments_count = 0
+   
+   require "date"
+   new_photo.created_at = Date.today
+   new_photo.updated_at = Date.today
+
+   new_photo.save
+
+    redirect_to("/photos")
+    
+
+  end
+
+
 end

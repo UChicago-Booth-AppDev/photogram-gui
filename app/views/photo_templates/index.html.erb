@@ -7,6 +7,25 @@
 
 <h1>List of photos</h1>
 
+<form action="/create_photo">
+  <label for="browser_input">
+    Image
+  </label>
+  <input id="browser_input" type="text" name="input_image" placeholder="Enter a URL for the image...">
+
+  <label for="browser_caption">
+    Caption
+  </label>
+  <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">
+  </textarea>
+
+  <label for="browser_owner_id">
+    Owner ID
+  </label>
+      <button>Add photo</button>
+      <input id="browser_owner_id" type="text" name="input_owner_id" placeholder="Enter an ID of a User">
+</form>
+
 <table border="1">
   <tr>
     <th>
