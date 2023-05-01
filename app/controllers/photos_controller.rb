@@ -48,20 +48,29 @@ class PhotosController < ActionController::Base
    new_photo.image = @image
    new_photo.caption = @caption
    new_photo.owner_id = @owner_id
-   new_photo.id = Photo.all.order({ :id => :desc}).at(0).id + 1
-   new_photo.likes_count = 0
-   new_photo.comments_count = 0
-   
-   require "date"
-   new_photo.created_at = Date.today
-   new_photo.updated_at = Date.today
 
    new_photo.save
 
     redirect_to("/photos")
     
-
   end
 
+  def edit_photo
+    
+    @image = params.fetch("input_image")
+    @caption = params.fetch("input_caption")
+    
+    @photo_id = params.fetch("photo_id")
+
+    edited_photo = Photo.where({ :id => @photo_id}).at(0)
+
+    edited_photo.image = @image
+    edited_photo.caption = @caption
+    
+    edited_photo.save
+    
+    redirect_to("/photos")
+    
+  end
 
 end

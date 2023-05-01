@@ -16,7 +16,24 @@
   <dt>Posted</dt>
     <dd><%=@photo.created_at%></dd>
   <dt>Edit photo</dt>
-    <dd>Image</dd>
+    <dd>
+  
+      <form action="/edit_photo/<%=@photo.id%>">
+        <label for="edit_image">
+          Image
+        </label>
+        <input id="edit_image" name="input_image" placeholder="Enter a URL for the image..." value=<%=@photo.image%>>
+        
+        <label for="edit_caption">
+          Caption
+        </label>
+        <input id="edit_caption" name="input_caption" placeholder="Enter a caption for the image..."value=<%=@photo.caption%>>
+        
+        <button>Update photo</button>
+      
+      </form>
+    
+    </dd>
   <dt>Delete photo</dt>
     <dd>
       <a href="/delete_photo/<%=@photo.id%>">Delete this photo</a>
