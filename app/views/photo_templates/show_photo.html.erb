@@ -18,7 +18,9 @@
   <dt>Edit photo</dt>
     <dd>Image</dd>
   <dt>Delete photo</dt>
-    <dd>Delete this photo</dd>
+    <dd>
+      <a href="/delete_photo/<%=@photo.id%>">Delete this photo</a>
+    </dd>
 </dl>
 
 <h2>Comments</h2>
@@ -33,7 +35,7 @@
     <%@photo.comments.each do |a_comment|%>
     <tr>
       <td>
-        <%=a_comment.author_id%>
+        <%=a_comment.commenter.username%>
       </td>
       <td>
         <%=a_comment.body%>
@@ -46,6 +48,6 @@
     <%end%>
 </table>
 
-<h2>Add new comment</h2>
+<h3>Add new comment</h3>
 
 Photo ID
