@@ -51,7 +51,7 @@ class PhotosController < ActionController::Base
 
    new_photo.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{new_photo.id}")
     
   end
 
@@ -69,7 +69,25 @@ class PhotosController < ActionController::Base
     
     edited_photo.save
     
-    redirect_to("/photos")
+    redirect_to("/photos/#{@photo_id}")
+    
+  end
+
+  def edit_comment
+    
+    @author_id = params.fetch("author_id")
+    @comment = params.fetch("new_comment")
+    @photo_id = params.fetch("photo_id")
+
+    new_comment = Comment.new
+    new_comment.photo_id = @photo_id
+    new_comment.body = @comment
+    new_comment.author_id = @author_id
+ 
+    new_comment.save
+
+    
+    redirect_to("/photos/#{@photo_id}")
     
   end
 

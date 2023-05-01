@@ -28,7 +28,7 @@ class Photo < ApplicationRecord
   def comments
     my_id = self.id
 
-    matching_comments = Comment.where({ :photo_id => self.id })
+    matching_comments = Comment.where({ :photo_id => self.id }).order({ :created_at => :desc})
 
     return matching_comments
   end

@@ -27,7 +27,8 @@
         <label for="edit_caption">
           Caption
         </label>
-        <input id="edit_caption" name="input_caption" placeholder="Enter a caption for the image..."value=<%=@photo.caption%>>
+        <textarea id="edit_caption" name="input_caption" placeholder="Enter a caption for the image..."value=<%=@photo.caption%>>
+        </textarea>
         
         <button>Update photo</button>
       
@@ -67,4 +68,24 @@
 
 <h3>Add new comment</h3>
 
-Photo ID
+<form action="/edit_comment/<%=@photo.id%>">
+        <label for="photo_id">
+          Photo ID
+        </label>
+        <input id="photo_id" name="photo_id" value=<%=@photo.id%>>
+        
+        <label for="author_id">
+          Author ID
+        </label>
+        <input id="author_id" name="author_id">
+        
+        <label for="new_comment">
+          Comment
+        </label>
+        <textarea id="new_comment" name="new_comment" placeholder="Enter a comment" >Enter a comment...
+        </textarea>
+
+        <button>Add comment</button>
+      
+      </form>
+    
